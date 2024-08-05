@@ -40,7 +40,6 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 
 
 # Index
-import lancedb
 from langchain_community.vectorstores import Chroma, LanceDB, FAISS
 from langchain.retrievers import BM25Retriever, EnsembleRetriever
 from langchain_core.documents import Document
@@ -87,8 +86,14 @@ class RAG_Pipeline:
         # #Document Loader
         if self.data_loaded == False:
             # loader = DirectoryLoader('./data', glob="**/*.md", loader_cls=TextLoader)
-            loader = UnstructuredMarkdownLoader('./data/full_data.md')
-            docs = loader.load()
+            loader1 = UnstructuredMarkdownLoader('./data/full_data.md')
+            
+            loader_pdf = DirectoryLoader('./data/faq', glob="**/*.pdf")
+            
+
+            combined_loader = MergedDataLoader(loaders=[loader1, loader_pdf])
+            docs = combined_loader.load()
+
 
             text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
                 chunk_size=600,
