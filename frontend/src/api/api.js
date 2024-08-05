@@ -12,8 +12,8 @@
 
 export const getAIMessage = async (userQuery) => {
   try {
-    const response = await fetch('http://127.0.0.1:8000/api/get_ai_message', {
-    // const response = await fetch('https://website-chatbot-79i9.onrender.com/api/get_ai_message', {
+    // const response = await fetch('http://127.0.0.1:8000/api/get_ai_message', {
+    const response = await fetch('https://website-chatbot-79i9.onrender.com/api/get_ai_message', {
       
       method: 'POST',
       headers: {
