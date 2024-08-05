@@ -33,16 +33,16 @@ from langchain.chains import create_history_aware_retriever, create_retrieval_ch
 from langchain_core.messages import AIMessage, HumanMessage
 
 
-from langchain_community.chat_message_histories import ChatMessageHistory
-from langchain_community.document_loaders import WebBaseLoader
-from langchain_core.chat_history import BaseChatMessageHistory
-from langchain_core.runnables.history import RunnableWithMessageHistory
+# from langchain_community.chat_message_histories import ChatMessageHistory
+# from langchain_community.document_loaders import WebBaseLoader
+# from langchain_core.chat_history import BaseChatMessageHistory
+# from langchain_core.runnables.history import RunnableWithMessageHistory
 
 
 # Index
-from langchain_community.vectorstores import Chroma, LanceDB, FAISS
-from langchain.retrievers import BM25Retriever, EnsembleRetriever
-from langchain_core.documents import Document
+# from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
+# from langchain_core.documents import Document
 
 
 ##Memory
@@ -51,14 +51,11 @@ from langchain_core.prompts import MessagesPlaceholder
 
 
 ## Others
-from langchain_core.runnables import RunnableLambda
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
+# from langchain_core.runnables import RunnableLambda
+# from langchain_core.output_parsers import StrOutputParser
+# from langchain_core.runnables import RunnablePassthrough
 
 #Helpers
-import datetime
-from typing import Literal, Optional, Tuple
-
 import langchain
 
 
